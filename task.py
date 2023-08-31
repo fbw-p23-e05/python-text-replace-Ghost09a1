@@ -1,18 +1,14 @@
-def replace_dog_with_cat(sentence):
-  """Replaces all standalone instances of "dog" in the given sentence with "cat".
+def replace_word(sentence, target_word, replacement_word):
+    words = sentence.split()
+    for i in range(len(words)):
+        if words[i] == target_word:
+            words[i] = replacement_word
+    new_sentence = ' '.join(words)
+    return new_sentence
 
-  Args:
-    sentence: The sentence to be modified.
+input_sentence = "A dogmatic dog buys dogecoin to become rich and buy hotdogs every day."
+target_word = "dog"
+replacement_word = "cat"
 
-  Returns:
-    The modified sentence.
-  """
-
-  modified_sentence = sentence.replace("dog", "cat")
-  return modified_sentence
-
-
-if __name__ == "__main__":
-  sentence = "A dogmatic dog buys dogecoin to become rich and buy hotdogs every day."
-  modified_sentence = replace_dog_with_cat(sentence)
-  print(f"The modified sentence is: {modified_sentence}")
+output_sentence = replace_word(input_sentence, target_word, replacement_word)
+print(f"Output: {output_sentence}")
